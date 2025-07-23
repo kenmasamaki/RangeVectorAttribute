@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -25,11 +25,11 @@ public class RangeVectorAttributeDrawer : PropertyDrawer
 	public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 	{
 		int fieldCount = GetFieldCount(property);
-		// Ü‚è‚½‚½‚İ‚Íƒ‰ƒxƒ‹1s•ª‚¾‚¯
+		// æŠ˜ã‚ŠãŸãŸã¿æ™‚ã¯ãƒ©ãƒ™ãƒ«1è¡Œåˆ†ã ã‘
 		if (!property.isExpanded || fieldCount == 0)
 			return EditorGUIUtility.singleLineHeight + 2;
 
-		// “WŠJ‚Íƒ‰ƒxƒ‹{Še¬•ª•ª‚Ì‚‚³
+		// å±•é–‹æ™‚ã¯ãƒ©ãƒ™ãƒ«ï¼‹å„æˆåˆ†åˆ†ã®é«˜ã•
 		return EditorGUIUtility.singleLineHeight * (fieldCount + 1) + 4;
 	}
 
@@ -39,7 +39,7 @@ public class RangeVectorAttributeDrawer : PropertyDrawer
 
 		EditorGUI.BeginProperty(position, label, property);
 
-		// Foldoutƒ‰ƒxƒ‹
+		// Foldoutãƒ©ãƒ™ãƒ«
 		Rect foldoutRect = new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight);
 		property.isExpanded = EditorGUI.Foldout(foldoutRect, property.isExpanded, label);
 
@@ -67,7 +67,7 @@ public class RangeVectorAttributeDrawer : PropertyDrawer
 				if (component != null)
 				{
 					Rect sliderRect = new Rect(position.x, y, position.width, sliderHeight);
-					string labelText = GetFieldName(i).ToUpper(); // ƒ‰ƒxƒ‹‚Ì‚İ‘å•¶š
+					string labelText = GetFieldName(i).ToUpper(); // ãƒ©ãƒ™ãƒ«ã®ã¿å¤§æ–‡å­—
 					if (component.propertyType == SerializedPropertyType.Float)
 					{
 						component.floatValue = EditorGUI.Slider(sliderRect, labelText, component.floatValue, range.Min, range.Max);
